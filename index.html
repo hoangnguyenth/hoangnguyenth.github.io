@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video Player</title>
+	<style>
+		.container {
+			justify-content: center;
+			align-items: center;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+		.container #rickroll-btns {
+			display: block;
+			justify-content: center;
+		}
+		.container #video-container {
+			display: none;
+		}
+		.container #after-rickroll {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+
+		<div id="rickroll-btns">
+			<h1>Nhạc của Ngthoang</h1>
+			<button id="rickroll-btn">Bấm vào đây để nghe nhạc</button>
+		</div>
+
+		<div id="after-rickroll">
+			<h1>Bạn đã bị RickRoll</h1>
+			<button id="real-button">Video nè (Thiệt)</button>
+		</div>
+		<video width="640" height="360" controls id="video-container">
+			<source src="https://raw.githubusercontent.com/hoangnguyenth/mymusics/main/mvs/Dem sao viet hoa.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		
+	</div>
+
+	<script>
+		const rickrollBtn = document.getElementById('rickroll-btn');
+		const rickrollLink = "https://youtu.be/dQw4w9WgXcQ?si=wMkiL9inLUA5RCdQ"
+		const afterRickroll = document.getElementById('after-rickroll')
+		
+		rickrollBtn.addEventListener('click', () => {
+			window.open(rickrollLink, "_blank")
+			afterRickroll.style.display = 'block';
+		})
+
+		const videoButton = document.getElementById('real-button')
+		const videoContainer = document.getElementById('video-container');
+
+		videoButton.addEventListener('click', () => {
+			videoContainer.style.display = 'block';
+		});
+	</script>
+</body>
+</html>

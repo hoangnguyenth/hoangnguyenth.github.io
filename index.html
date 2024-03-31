@@ -15,15 +15,36 @@
 			display: block;
 			justify-content: center;
 		}
-		.container #video-container {
+		.container #after-rickroll {
 			display: none;
 		}
-		.container #after-rickroll {
+		#troll-text {
+			display: none;
+			font-size: x-large;
+		}
+		#lol-text {
+			display: none;
+			font-size: x-large;
+		}
+		#login {
+			position: absolute;
+			width: 30;
+			height: 30;
+			top: 0px;
+			right: 0px;
+		}
+		#video {
+			display: none;
+		}
+		#ctt {
+			font: bold;
+			font-size: xx-large;
 			display: none;
 		}
 	</style>
 </head>
 <body>
+	<button id="login">Đăng nhập</button>
 	<div class="container">
 
 		<div id="rickroll-btns">
@@ -35,10 +56,25 @@
 			<h1>Bạn đã bị RickRoll</h1>
 			<button id="real-button">Video nè (Thiệt)</button>
 		</div>
-		<video width="640" height="360" controls id="video-container">
-			<source src="https://raw.githubusercontent.com/hoangnguyenth/mymusics/main/mvs/Dem sao viet hoa.mp4" type="video/mp4">
-			Your browser does not support the video tag.
-		</video>
+		<div id="video-container">
+			<video controls id="video">
+				<source src="https://raw.githubusercontent.com/hoangnguyenth/mymusics/main/mvs/Dem sao viet hoa.mp4" type="video/mp4">
+			</video>
+			<p id="troll-text">
+				Bị lừa x2 
+			</p>
+			<p id="lol-text">
+				LOL <br>
+				LOL	<br>
+				LOL <br>
+				LOL <br>
+				LOL <br>
+			</p>
+			<p id="ctt">
+				Cá tháng Tư zui zẻ
+			</p>
+			
+		</div>
 		
 	</div>
 
@@ -52,12 +88,37 @@
 			afterRickroll.style.display = 'block';
 		})
 
+		let trollswitch = true
+
 		const videoButton = document.getElementById('real-button')
-		const videoContainer = document.getElementById('video-container');
+		const trollText = document.getElementById('troll-text');
+		const lolText = document.getElementById('lol-text')
+		const video = document.getElementById('video')
+		const ctt = document.getElementById('ctt')
 
 		videoButton.addEventListener('click', () => {
-			videoContainer.style.display = 'block';
+			if (trollswitch) {
+				trollText.style.display = 'block';
+				setTimeout(() => {
+					lolText.style.display = 'block'
+				}, 1500)
+				setTimeout(() => {
+					ctt.style.display = 'block'
+				}, 1500)
+			} else {
+				video.style.display = 'block'
+			}
 		});
+
+		const loginButton = document.getElementById('login')
+		loginButton.addEventListener('click', () => {
+			let pass = window.prompt("Nhap mat khau: ")
+			if (pass == "q52h") {
+				trollswitch = false
+			} else {
+				window.alert("Mat khau sai")
+			}
+		})
 	</script>
 </body>
 </html>
